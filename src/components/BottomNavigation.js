@@ -41,10 +41,6 @@ const BottomNavigation = ({route}) => {
           Bookings
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.navbarItem}>
-        <UserRoundedIcon size={scale(21)} color={colors.grey} />
-        <Text style={styles.navbarText}>Profile</Text>
-      </TouchableOpacity>
     </View>
   );
 };
