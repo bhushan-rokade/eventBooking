@@ -1,5 +1,6 @@
 const routes = {
   HOME: 'Home',
+  BOOKINGS: 'Bookings',
 };
 const colors = {
   lightgrey: '#E8E9EB',

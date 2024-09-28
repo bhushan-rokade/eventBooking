@@ -14,7 +14,7 @@ import {
   moderateVerticalScale,
   scale,
 } from 'react-native-size-matters';
-import {colors, font} from '../utils/constants';
+import {colors, font, routes} from '../utils/constants';
 import ListItem from '../components/Home/ListItem';
 import SingleList from '../components/Home/SingleList';
 import BottomNavigation from '../components/BottomNavigation';
@@ -89,7 +89,7 @@ export default function Home() {
           </View>
         </View>
       </ScrollView>
-      <BottomNavigation route={'Home'} />
+      <BottomNavigation route={routes.HOME} />
     </>
   );
 }

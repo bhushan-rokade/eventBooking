@@ -1,27 +1,45 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {moderateVerticalScale, scale} from 'react-native-size-matters';
-import {colors, font} from '../utils/constants';
+import {colors, font, routes} from '../utils/constants';
 import HomeIcon from '../icons/HomeIcon';
 import TicketIcon from '../icons/TicketIcon';
 import UserRoundedIcon from '../icons/ProfileIcon';
+import {useNavigation} from '@react-navigation/native';
 
 const BottomNavigation = ({route}) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={[styles.navbarItem]}>
+      <TouchableOpacity
+        style={[styles.navbarItem]}
+        onPress={() => navigation.navigate(routes.HOME)}>
         <HomeIcon
           size={scale(21)}
-          color={route == 'Home' ? colors.linkblue : colors.grey}
+          color={route == routes.HOME ? colors.linkblue : colors.grey}
         />
         <Text
-          style={route == 'Home' ? styles.navbarTextActive : styles.navbarText}>
+          style={
+            route == routes.HOME ? styles.navbarTextActive : styles.navbarText
+          }>
           Home
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.navbarItem}>
-        <TicketIcon size={scale(21)} color={colors.grey} />
-        <Text style={styles.navbarText}>Bookings</Text>
+      <TouchableOpacity
+        style={styles.navbarItem}
+        onPress={() => navigation.navigate(routes.BOOKINGS)}>
+        <TicketIcon
+          size={scale(21)}
+          color={route == routes.BOOKINGS ? colors.linkblue : colors.grey}
+        />
+        <Text
+          style={
+            route == routes.BOOKINGS
+              ? styles.navbarTextActive
+              : styles.navbarText
+          }>
+          Bookings
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.navbarItem}>
         <UserRoundedIcon size={scale(21)} color={colors.grey} />

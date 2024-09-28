@@ -6,9 +6,9 @@ import {
   scale,
 } from 'react-native-size-matters';
 import {colors, font} from '../../utils/constants';
-import StarIcon from '../../icons/StartIcon';
+import RightArrowIcon from '../../icons/RightArrowIcon';
 
-const SingleList = ({item}) => {
+const BookingListItem = ({item}) => {
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.imageView}>
@@ -16,43 +16,34 @@ const SingleList = ({item}) => {
       </View>
       <View style={styles.textView}>
         <Text style={styles.subject}>{item.eventName}</Text>
-        <Text style={styles.price}>₹.{item.price}</Text>
-        <Text style={styles.category}>{item.categoryText}</Text>
-        <View style={styles.distRating}>
-          <Text style={styles.distance}>{item.distance} away</Text>
-          <Text style={styles.rating}>• {item.rating}</Text>
-          <StarIcon size={scale(10)} color={colors.linkblue} />
+        <View style={styles.timeDetails}>
+          <Text style={styles.date}>
+            {item.date} - {item.time}
+          </Text>
         </View>
+      </View>
+      <View style={styles.iconView}>
+        <RightArrowIcon color="black" size={scale(17)} />
       </View>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  rating: {
-    fontFamily: font.semiBold,
-    fontSize: scale(10),
-    marginLeft: moderateScale(15),
-    color: colors.linkblue,
-  },
-  distRating: {
-    flexDirection: 'row',
+  iconView: {
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  distance: {
+  time: {
+    fontFamily: font.semiBold,
+    fontSize: scale(10),
+    marginLeft: moderateScale(10),
+    color: colors.grey,
+  },
+  date: {
     fontFamily: font.semiBold,
     fontSize: scale(10),
     color: colors.grey,
-  },
-  category: {
-    fontFamily: font.bold,
-    color: colors.grey,
-    fontSize: scale(12),
-  },
-  price: {
-    fontFamily: font.bold,
-    color: colors.grey,
-    fontSize: scale(13),
   },
   subject: {
     fontFamily: font.bold,
@@ -60,22 +51,19 @@ const styles = StyleSheet.create({
     fontSize: scale(16),
   },
   textView: {
-    width: moderateScale(200),
+    width: moderateScale(160),
     marginHorizontal: moderateScale(10),
     marginVertical: moderateVerticalScale(20),
   },
   image: {
-    height: moderateVerticalScale(160),
-    width: moderateScale(170),
+    height: moderateVerticalScale(120),
+    width: moderateScale(150),
     borderRadius: scale(15),
   },
   container: {
-    marginTop: moderateVerticalScale(20),
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: moderateScale(18),
-    width: moderateScale(300),
   },
 });
 
-export default SingleList;
+export default BookingListItem;
