@@ -4,6 +4,7 @@ const routes = {
   BOOKINGDETAILS: 'BookingDetails',
   BOOKEVENT: 'BookEvent',
   CATEGORY: 'Category',
+  SEARCH: 'SearchScreen',
 };
 const colors = {
   lightgrey: '#E8E9EB',

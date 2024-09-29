@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import {
@@ -6,18 +6,26 @@ import {
   moderateVerticalScale,
   scale,
 } from 'react-native-size-matters';
-import {colors, font} from '../../utils/constants';
+import {colors, font, routes} from '../../utils/constants';
 import SearchIcon from '../../icons/SearchIcon';
 
-const SearchView = ({placeholder}) => {
+const SearchView = ({placeholder, navigation, data}) => {
+  const [text, setText] = useState('');
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.textInput}
         placeholder={placeholder}
         placeholderTextColor={colors.grey}
+        value={text}
+        onChangeText={text => {
+          setText(text);
+        }}
       />
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate(routes.SEARCH, {data: data, text: text})
+        }>
         <SearchIcon size={scale(23)} color="black" />
       </TouchableOpacity>
     </View>

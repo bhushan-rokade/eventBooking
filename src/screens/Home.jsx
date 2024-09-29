@@ -52,6 +52,7 @@ export default function Home() {
       setLoading(false); // Set loading to false after handling the error
     }
   };
+  console.log(responseData);
 
   // If data is still loading, show a loader (ActivityIndicator)
   if (loading) {
@@ -79,7 +80,11 @@ export default function Home() {
 
         {/* Search bar component at the top */}
         <View style={{alignSelf: 'center'}}>
-          <SearchView placeholder={'What are you looking for?'} />
+          <SearchView
+            placeholder={'What are you looking for?'}
+            navigation={navigation}
+            data={responseData}
+          />
         </View>
 
         {/* Section to explore different items */}

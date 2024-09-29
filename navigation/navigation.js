@@ -6,6 +6,7 @@ import Bookings from '../src/screens/Bookings';
 import BookingDetails from '../src/screens/BookingDetails.jsx';
 import BookEvent from '../src/screens/BookEvent.jsx';
 import Category from '../src/screens/Category.jsx';
+import SearchScreen from '../src/screens/SearchScreen.jsx';
 const Stack = createStackNavigator();
 
 function MyStack() {
@@ -59,6 +60,15 @@ function MyStack() {
             animationEnabled: true,
             animationTypeForReplace: 'push',
             presentation: 'screen',
+          }}
+        />
+        <Stack.Screen
+          name={routes.SEARCH}
+          component={SearchScreen}
+          options={{
+            animationEnabled: true,
+            animationTypeForReplace: 'push',
+            presentation: 'modal',
           }}
         />
       </Stack.Navigator>
