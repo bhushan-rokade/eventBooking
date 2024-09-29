@@ -78,13 +78,17 @@ This React Native app allows users to browse and book various events with a slee
   /utils
 ```
 
-## 🤝 Contributing
+## 📸 Screenshots
 
-Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/your-repo-name/event-booking-app/issues).
+| Home Screen             |  Search Screen           |    Event Details Screen  | Bookings Screen       |
+|-------------------------|--------------------------|--------------------------|---------------------------|
+| ![ss1](./ss/ss1.jpeg)    | ![ss2](./ss/ss2.jpeg)    | ![ss3](./ss/ss3.jpeg)    | ![ss4](./ss/ss4.jpeg)     |
+
 
 ## 👨‍💻 Author
 
 **Bhushan Rokade**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhushan-rokade-77b815209/)
-[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/r_bhushan/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u_rbhushan/)
+
