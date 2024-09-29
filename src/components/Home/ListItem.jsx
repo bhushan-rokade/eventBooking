@@ -24,7 +24,7 @@ const ListItem = ({item, navigation, data}) => {
         }}
       />
       <Text style={styles.categoryText}>{item.categoryText}</Text>
-      <Text style={styles.eventCount}>{item.eventCount} Events</Text>
+      <Text style={styles.eventCount}>1 Events</Text>
     </TouchableOpacity>
   );
 };
