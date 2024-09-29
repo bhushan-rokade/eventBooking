@@ -1,79 +1,92 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📱 React Native Event Booking App
 
-# Getting Started
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+This React Native app allows users to browse and book various events with a sleek, user-friendly interface. Explore upcoming events, view details, and make bookings seamlessly. The app leverages Redux for efficient state management, particularly for handling booking details and user input.
 
-## Step 1: Start the Metro Server
+## 🚀 Features
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- 🎉 **Event Browsing**: Browse events across categories like Music, Sports, and Movies
+- 📋 **Event Details**: Get comprehensive information on each event
+- 🎟️ **Booking System**: Easy-to-use booking form for securing your spot
+- 🔄 **State Management**: Utilizes Redux for smooth, predictable state updates
+- 📱 **Responsive Design**: Looks great on all devices thanks to react-native-size-matters
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## 🛠️ Technologies Used
 
-```bash
-# using npm
-npm start
+- React Native
+- Redux
+- React Navigation
+- Axios
+- AsyncStorage
+- react-native-size-matters
 
-# OR using Yarn
-yarn start
+## 🏗️ Project Setup
+
+### Prerequisites
+
+- Node.js (v14.x or later)
+- npm or yarn
+- Android Studio (Android) or Xcode (iOS)
+- React Native CLI
+- Android Emulator or iOS Simulator
+
+### Installation Steps
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/bhushan-rokade/eventBooking.git
+   cd eventBooking
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Run the App**
+   - For Android:
+     ```bash
+     npx react-native run-android
+     ```
+   - For iOS:
+     ```bash
+     npx react-native run-ios
+     ```
+
+4. **Build Release Version (Android)**
+   ```bash
+   cd android
+   ./gradlew assembleRelease
+   ```
+
+## 📁 Folder Structure
+
+```
+/android
+/ios
+/src
+  /components
+  /redux
+  /icons
+  /utils
 ```
 
-## Step 2: Start your Application
+## 🤝 Contributing
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/your-repo-name/event-booking-app/issues).
 
-### For Android
+## 👨‍💻 Author
 
-```bash
-# using npm
-npm run android
+**Bhushan Rokade**
 
-# OR using Yarn
-yarn android
-```
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhushan-rokade-77b815209/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/r_bhushan/)
 
-### For iOS
+## 📄 License
 
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
