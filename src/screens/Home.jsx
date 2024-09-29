@@ -52,7 +52,6 @@ export default function Home() {
       setLoading(false); // Set loading to false after handling the error
     }
   };
-  console.log(responseData);
 
   // If data is still loading, show a loader (ActivityIndicator)
   if (loading) {

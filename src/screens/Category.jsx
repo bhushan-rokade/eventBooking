@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   EventView: {
-    marginTop: moderateVerticalScale(25),
+    marginTop: moderateVerticalScale(30),
   },
   headingView: {
     marginHorizontal: moderateScale(20),
