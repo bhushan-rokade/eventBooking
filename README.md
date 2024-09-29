@@ -1,5 +1,3 @@
-Here's the updated README with a download button for the APK file:
-
 # 📱 React Native Event Booking App
 
 ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
