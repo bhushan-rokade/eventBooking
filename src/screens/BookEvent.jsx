@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -15,12 +15,36 @@ import {
 } from 'react-native-size-matters';
 import LeftArrowIcon from '../icons/LeftArrowIcon';
 import {useNavigation} from '@react-navigation/native';
-import {TextInput} from 'react-native-gesture-handler';
 import Input from '../components/BookEvent/Input';
 import QuantityInput from '../components/BookEvent/QuantityInput';
+import {useDispatch} from 'react-redux';
+import {addBooking} from '../redux/slices/bookingSlice';
 
-const BookEvent = () => {
+const BookEvent = ({route}) => {
+  const dispatch = useDispatch();
+  const data = route.params;
   const navigation = useNavigation();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [qty, setQty] = useState(0);
+  const handleSubmit = () => {
+    const data2 = {
+      name: name,
+      email: email,
+      quantity: qty,
+      eventData: data,
+    };
+    console.log(data2);
+    dispatch(addBooking(data2));
+    Alert.alert('Successful', 'Your Booking Is Done.', [
+      {
+        text: 'Ok',
+        onPress: () => {
+          navigation.navigate(routes.HOME);
+        },
+      },
+    ]);
+  };
   return (
     <>
       <StatusBar
@@ -39,27 +63,24 @@ const BookEvent = () => {
             placeholder={'Enter Your Name'}
             label={'Name'}
             inputMode={'text'}
+            fun={setName}
           />
           <Input
             placeholder={'Enter Your Email '}
             label={'Email'}
             inputMode={'email'}
+            fun={setEmail}
           />
-          <QuantityInput placeholder={'Quantity '} label={'Quantity'} />
+          <QuantityInput
+            placeholder={'Quantity '}
+            label={'Quantity'}
+            fun={setQty}
+          />
         </View>
         <View style={styles.btnView}>
           <TouchableOpacity
             style={styles.btnSbmt}
-            onPress={() => {
-              Alert.alert('Successful', 'Your Booking Is Done.', [
-                {
-                  text: 'Ok',
-                  onPress: () => {
-                    navigation.navigate(routes.HOME);
-                  },
-                },
-              ]);
-            }}>
+            onPress={() => handleSubmit()}>
             <Text style={styles.btnText}>Submit</Text>
           </TouchableOpacity>
           <TouchableOpacity

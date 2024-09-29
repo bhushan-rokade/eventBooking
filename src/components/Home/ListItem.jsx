@@ -7,11 +7,16 @@ import {
 } from 'react-native-size-matters';
 import {colors, font, routes} from '../../utils/constants';
 
-const ListItem = ({item, navigation}) => {
+const ListItem = ({item, navigation, data}) => {
   return (
     <TouchableOpacity
       style={styles.exploreListView}
-      onPress={() => navigation.navigate(routes.CATEGORY)}>
+      onPress={() =>
+        navigation.navigate(routes.CATEGORY, {
+          data: data,
+          cat: item.categoryText,
+        })
+      }>
       <Image
         style={styles.imageStyle}
         source={{

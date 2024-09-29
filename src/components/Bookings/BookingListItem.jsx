@@ -5,21 +5,21 @@ import {
   moderateVerticalScale,
   scale,
 } from 'react-native-size-matters';
-import {colors, font} from '../../utils/constants';
+import {colors, font, routes} from '../../utils/constants';
 import RightArrowIcon from '../../icons/RightArrowIcon';
 
-const BookingListItem = ({item}) => {
+const BookingListItem = ({item, navigation}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate(routes.BOOKINGDETAILS, item)}>
       <View style={styles.imageView}>
-        <Image source={{uri: item.imagelink}} style={styles.image} />
+        <Image source={{uri: item?.imagelink}} style={styles.image} />
       </View>
       <View style={styles.textView}>
-        <Text style={styles.subject}>{item.eventName}</Text>
+        <Text style={styles.subject}>{item?.eventName}</Text>
         <View style={styles.timeDetails}>
-          <Text style={styles.date}>
-            {item.date} - {item.time}
-          </Text>
+          <Text style={styles.date}>{item?.date}</Text>
         </View>
       </View>
       <View style={styles.iconView}>

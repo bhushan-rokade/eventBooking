@@ -8,13 +8,13 @@ import {
 } from 'react-native-size-matters';
 import LightningIcon from '../../icons/LightningIcon';
 
-const Footer = ({navigation, price}) => {
+const Footer = ({navigation, data}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.priceText}>₹.{price} / entry</Text>
+      <Text style={styles.priceText}>₹.{data.price} / entry</Text>
       <TouchableOpacity
         style={styles.bookBtn}
-        onPress={() => navigation.navigate(routes.BOOKEVENT)}>
+        onPress={() => navigation.navigate(routes.BOOKEVENT, data)}>
         <Text style={styles.btnText}>Book </Text>
         <LightningIcon color="white" size={scale(15)} />
       </TouchableOpacity>

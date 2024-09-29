@@ -21,42 +21,8 @@ import {useNavigation} from '@react-navigation/native';
 import StarIcon from '../icons/StartIcon';
 import LocationIcon from '../icons/LocationIcon';
 
-const data = [
-  {
-    id: 1,
-    imagelink:
-      'https://img.freepik.com/free-photo/rear-view-large-group-music-fans-front-stage-during-music-concert-by-night-copy-space_637285-623.jpg',
-    categoryText: 'Music',
-    eventName: 'Music Concert',
-    price: 2000,
-    eventCount: 20,
-    rating: 4.5,
-    distance: '100 kms',
-  },
-  {
-    id: 2,
-    imagelink:
-      'https://png.pngtree.com/thumb_back/fh260/background/20230930/pngtree-rendered-3d-image-of-a-vibrant-soccer-stadium-with-a-football-image_13551920.png',
-    categoryText: 'Sport',
-    eventName: 'Football Match',
-    price: 1500,
-    eventCount: 10,
-    rating: 4.7,
-    distance: '50 kms',
-  },
-  {
-    id: 3,
-    imagelink:
-      'https://cdn.pixabay.com/photo/2024/03/03/17/17/cinema-8610863_1280.png',
-    categoryText: 'Movie',
-    eventName: 'Movie Screening',
-    price: 500,
-    eventCount: 5,
-    rating: 4.1,
-    distance: '16 kms',
-  },
-];
-export default function BookingDetails() {
+export default function BookingDetails({route}) {
+  const item = route.params;
   const navigation = useNavigation();
   return (
     <>
@@ -67,12 +33,13 @@ export default function BookingDetails() {
           barStyle="light-content"
         />
         <FlatList
-          data={data}
-          renderItem={({item}) => (
+          data={[item]}
+          renderItem={({item, index}) => (
             <CarouselItem
               item={item}
-              length={data.length}
+              length={item.length || 1}
               navigation={navigation}
+              index={index}
             />
           )}
           horizontal
@@ -81,18 +48,18 @@ export default function BookingDetails() {
           showsHorizontalScrollIndicator={false}
         />
         <View style={styles.headingTextView}>
-          <Text style={styles.titleText}>{data[0].eventName}</Text>
+          <Text style={styles.titleText}>{item.eventName}</Text>
           <View style={styles.innerTextView}>
-            <Text style={styles.innerText}>₹.2000</Text>
-            <Text style={styles.innerText}>• 3 Km away</Text>
-            <Text style={styles.innerText}>• 11/9/2024</Text>
+            <Text style={styles.innerText}>₹.{item.price}</Text>
+            <Text style={styles.innerText}>• {item.distance} away</Text>
+            <Text style={styles.innerText}>• {item.date}</Text>
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <Text style={styles.innerText}>• 4.8 </Text>
+              <Text style={styles.innerText}>• {item.rating} </Text>
               <StarIcon size={scale(12)} color={colors.linkblue} />
             </View>
           </View>
@@ -100,13 +67,7 @@ export default function BookingDetails() {
         <View style={styles.divider} />
         <View style={styles.descriptionView}>
           <Text style={styles.heading}>About The Event</Text>
-          <Text style={styles.descriptionText}>
-            Throughout the concert, Coldplay seamlessly navigated between
-            anthems and more intimate moments, showcasing their versatility and
-            artistry. Chris Martin's interactions with the crowd, filled with
-            genuine warmth and humility, made the colossal arena feel like an
-            intimate gathering of friends.
-          </Text>
+          <Text style={styles.descriptionText}>{item.desc}</Text>
         </View>
         <View style={styles.divider} />
         <View style={styles.locationView}>
@@ -118,12 +79,12 @@ export default function BookingDetails() {
               alignItems: 'center',
             }}>
             <LocationIcon size={scale(20)} />
-            <Text style={styles.innerText}> Gurgaon,Mumbai</Text>
+            <Text style={styles.innerText}> {item.location}</Text>
           </View>
         </View>
         <View style={styles.divider} />
       </ScrollView>
-      <Footer navigation={navigation} price={'2000'} />
+      <Footer navigation={navigation} price={'2000'} data={item} />
     </>
   );
 }

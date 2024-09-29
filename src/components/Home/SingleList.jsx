@@ -12,7 +12,7 @@ const SingleList = ({item, navigation}) => {
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => navigation.navigate(routes.BOOKINGDETAILS)}>
+      onPress={() => navigation.navigate(routes.BOOKINGDETAILS, item)}>
       <View style={styles.imageView}>
         <Image source={{uri: item.imagelink}} style={styles.image} />
       </View>

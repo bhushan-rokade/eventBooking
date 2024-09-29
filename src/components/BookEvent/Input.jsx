@@ -4,7 +4,7 @@ import {colors, font} from '../../utils/constants';
 import {TextInput} from 'react-native-gesture-handler';
 import {moderateScale, scale} from 'react-native-size-matters';
 
-export default function Input({label, placeholder, inputmode}) {
+export default function Input({label, placeholder, inputmode, fun}) {
   const [isFucosed, setIsFucused] = useState(false);
   return (
     <View style={styles.inputView}>
@@ -16,6 +16,7 @@ export default function Input({label, placeholder, inputmode}) {
           placeholder={placeholder}
           placeholderTextColor={colors.black}
           style={styles.input}
+          onChangeText={text => fun(text)}
           onFocus={() => setIsFucused(true)}
           onBlur={() => setIsFucused(false)}
           inputMode={inputmode}

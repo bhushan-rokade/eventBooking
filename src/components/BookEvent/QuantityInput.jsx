@@ -8,7 +8,7 @@ import {
   scale,
 } from 'react-native-size-matters';
 
-export default function QuantityInput({label, placeholder}) {
+export default function QuantityInput({label, placeholder, fun}) {
   const [isFucosed, setIsFucused] = useState(false);
   const [value1, setValue] = useState(1);
   return (
@@ -19,7 +19,10 @@ export default function QuantityInput({label, placeholder}) {
       <View style={isFucosed ? styles.textInputActive : styles.textInput}>
         <TouchableOpacity
           style={styles.qtyBtnLeft}
-          onPress={() => setValue(value1 - 1)}
+          onPress={() => {
+            setValue(value1 - 1);
+            fun(value1 - 1);
+          }}
           disabled={value1 == 1}>
           <Text style={styles.qtyText}>-</Text>
         </TouchableOpacity>
@@ -35,7 +38,10 @@ export default function QuantityInput({label, placeholder}) {
         />
         <TouchableOpacity
           style={styles.qtyBtnRight}
-          onPress={() => setValue(value1 + 1)}>
+          onPress={() => {
+            setValue(value1 + 1);
+            fun(value1 + 1);
+          }}>
           <Text style={styles.qtyText}>+</Text>
         </TouchableOpacity>
       </View>

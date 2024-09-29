@@ -17,7 +17,7 @@ import LeftArrowIcon from '../../icons/LeftArrowIcon';
 import ImageIcon from '../../icons/ImageIcon';
 import {colors, font} from '../../utils/constants';
 
-const CarouselItem = ({item, length, navigation}) => {
+const CarouselItem = ({item, length, navigation, index}) => {
   const width1 = useWindowDimensions().width;
   return (
     <ImageBackground
@@ -31,7 +31,7 @@ const CarouselItem = ({item, length, navigation}) => {
       <View style={styles.imageCounter}>
         <ImageIcon color={colors.screenbackground} size={scale(15)} />
         <Text style={styles.counterText}>
-          {item.id}/{length}
+          {index + 1}/{length}
         </Text>
       </View>
     </ImageBackground>
