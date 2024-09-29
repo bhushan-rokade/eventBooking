@@ -5,12 +5,14 @@ import {
   moderateVerticalScale,
   scale,
 } from 'react-native-size-matters';
-import {colors, font} from '../../utils/constants';
+import {colors, font, routes} from '../../utils/constants';
 import StarIcon from '../../icons/StartIcon';
 
-const SingleList = ({item}) => {
+const SingleList = ({item, navigation}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate(routes.BOOKINGDETAILS)}>
       <View style={styles.imageView}>
         <Image source={{uri: item.imagelink}} style={styles.image} />
       </View>

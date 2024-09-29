@@ -1,6 +1,9 @@
 const routes = {
   HOME: 'Home',
   BOOKINGS: 'Bookings',
+  BOOKINGDETAILS: 'BookingDetails',
+  BOOKEVENT: 'BookEvent',
+  CATEGORY: 'Category',
 };
 const colors = {
   lightgrey: '#E8E9EB',
@@ -8,6 +11,7 @@ const colors = {
   screenbackground: '#FFFFFF',
   grey: '#45515D',
   linkblue: '#0088EF',
+  blue: '#0088EF',
 };
 const font = {
   normal: 'Manrope-Regular',

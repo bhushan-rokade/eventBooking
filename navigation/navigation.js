@@ -3,6 +3,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {routes} from '../src/utils/constants';
 import Home from '../src/screens/Home';
 import Bookings from '../src/screens/Bookings';
+import BookingDetails from '../src/screens/BookingDetails.jsx';
+import BookEvent from '../src/screens/BookEvent.jsx';
+import Category from '../src/screens/Category.jsx';
 const Stack = createStackNavigator();
 
 function MyStack() {
@@ -25,6 +28,33 @@ function MyStack() {
         <Stack.Screen
           name={routes.BOOKINGS}
           component={Bookings}
+          options={{
+            animationEnabled: true,
+            animationTypeForReplace: 'push',
+            presentation: 'screen',
+          }}
+        />
+        <Stack.Screen
+          name={routes.BOOKINGDETAILS}
+          component={BookingDetails}
+          options={{
+            animationEnabled: true,
+            animationTypeForReplace: 'push',
+            presentation: 'screen',
+          }}
+        />
+        <Stack.Screen
+          name={routes.BOOKEVENT}
+          component={BookEvent}
+          options={{
+            animationEnabled: true,
+            animationTypeForReplace: 'push',
+            presentation: 'screen',
+          }}
+        />
+        <Stack.Screen
+          name={routes.CATEGORY}
+          component={Category}
           options={{
             animationEnabled: true,
             animationTypeForReplace: 'push',

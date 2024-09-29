@@ -6,19 +6,18 @@ import {
   StatusBar,
   FlatList,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
 import {ScrollView} from 'react-native-virtualized-view';
-import SearchView from '../components/Home/SearchView';
 import {
   moderateScale,
   moderateVerticalScale,
   scale,
 } from 'react-native-size-matters';
 import {colors, font, routes} from '../utils/constants';
-import ListItem from '../components/Home/ListItem';
 import SingleList from '../components/Home/SingleList';
-import BottomNavigation from '../components/BottomNavigation';
 import {useNavigation} from '@react-navigation/native';
+import LeftArrowIcon from '../icons/LeftArrowIcon';
 
 const data = [
   {
@@ -31,6 +30,8 @@ const data = [
     eventCount: 20,
     rating: 4.5,
     distance: '100 kms',
+    date: '11/9/2024',
+    desc: "Throughout the concert, Coldplay seamlessly navigated between anthems and more intimate moments, showcasing their versatility and artistry. Chris Martin's interactions with the crowd, filled with genuine warmth and humility, made the colossal arena feel like an intimate gathering of friends.",
   },
   {
     id: 2,
@@ -55,35 +56,27 @@ const data = [
     distance: '16 kms',
   },
 ];
-const height = Dimensions.get('window').height;
-export default function Home() {
+export default function Category() {
   const navigation = useNavigation();
   return (
     <>
       <ScrollView style={styles.container}>
         <StatusBar backgroundColor="white" barStyle="dark-content" />
-        <View style={{alignSelf: 'center'}}>
-          <SearchView placeholder={'What are you looking for?'} />
+        <View style={styles.headerView}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <LeftArrowIcon />
+          </TouchableOpacity>
+          <Text style={[styles.heading, {flex: 0.93, textAlign: 'center'}]}>
+            Music
+          </Text>
         </View>
-        <View style={styles.exploreView}>
+        <View style={styles.EventView}>
           <View style={styles.headingView}>
-            <Text style={styles.heading}>Explore</Text>
+            <Text style={[styles.heading, {fontSize: scale(20)}]}>
+              38 Events
+            </Text>
           </View>
-          <FlatList
-            data={data}
-            renderItem={({item}) => (
-              <ListItem item={item} navigation={navigation} />
-            )}
-            keyExtractor={item => item.id}
-            horizontal={true}
-            style={{marginTop: moderateVerticalScale(20)}}
-          />
-        </View>
-        <View style={styles.popularView}>
-          <View style={styles.headingView}>
-            <Text style={styles.heading}>Popular Near You</Text>
-          </View>
-          <View style={styles.popularListWrapper}>
+          <View style={styles.EventWrapper}>
             <FlatList
               data={data}
               keyExtractor={item => item.id.toString()}
@@ -95,18 +88,22 @@ export default function Home() {
           </View>
         </View>
       </ScrollView>
-      <BottomNavigation route={routes.HOME} />
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  popularListWrapper: {
+  headerView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: moderateScale(20),
+  },
+  EventWrapper: {
     marginBottom: moderateVerticalScale(15),
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  popularView: {
+  EventView: {
     marginTop: moderateVerticalScale(10),
   },
   headingView: {
@@ -116,9 +113,6 @@ const styles = StyleSheet.create({
     fontSize: scale(23),
     color: colors.grey,
     fontFamily: font.extraBold,
-  },
-  exploreView: {
-    marginTop: moderateVerticalScale(30),
   },
   container: {
     flex: 1,
