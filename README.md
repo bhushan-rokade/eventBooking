@@ -37,8 +37,8 @@ This React Native app allows users to browse and book various events with a slee
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-repo-name/event-booking-app.git
-   cd event-booking-app
+   git clone https://github.com/bhushan-rokade/eventBooking.git
+   cd eventBooking
    ```
 
 2. **Install Dependencies**
